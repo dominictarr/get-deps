@@ -1,0 +1,19 @@
+{
+    "name": "get-deps",
+    "description": "",
+    "version": "1.0.0",
+    "homepage": "https://github.com/dominictarr/get-deps",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/dominictarr/get-deps.git"
+    },
+    "dependencies": {
+        "package": "1.0.1"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "set -e; for t in test/*.js; do node $t; done"
+    },
+    "author": "Dominic Tarr <dominic.tarr@gmail.com> (http://dominictarr.com)",
+    "license": "MIT"
+}
