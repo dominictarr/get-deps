@@ -11,7 +11,7 @@ function merge (a, b) {
 module.exports = function (start, opts) {
   start = start || process.cwd()
   var p = package({filename: join(start, 'package.json')})
-  var m = !opts || opts.dev === false
+  var m = !opts || opts.dev !== false
         ? merge(p.devDependencies, p.dependencies)
         : p.dependencies
   var a = []
