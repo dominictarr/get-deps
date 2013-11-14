@@ -2,10 +2,11 @@ var package = require('package')
 var join = require('path').join
 
 function merge (a, b) {
+  var c = a || {}
   for(var k in b) {
-    a[k] = b[k]
+    c[k] = b[k]
   }
-  return a
+  return c
 }
 
 module.exports = function (start, opts) {
