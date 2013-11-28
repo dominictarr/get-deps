@@ -1,7 +1,7 @@
 {
     "name": "get-deps",
     "description": "get the dependencies to be installed from a directory",
-    "version": "2.0.4",
+    "version": "2.1.0",
     "homepage": "https://github.com/dominictarr/get-deps",
     "repository": {
         "type": "git",
