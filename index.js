@@ -10,16 +10,27 @@ function merge (a, b) {
   return a
 }
 
-module.exports = function (start, opts) {
-  start = start || process.cwd()
-  var p = package({filename: join(start, 'package.json')})
+function mergeDeps (p, opts) {
   var m = !opts || opts.dev !== false
-        ? merge(merge({}, p.dependencies), p.devDependencies)
-        : p.dependencies
+        ? merge(
+            merge(
+              merge({}, p.dependencies), 
+              p.devDependencies
+            ),
+            p.optionalDependencies
+          )
+        : merge(p.dependencies, p.optionalDependencies)
   var a = []
   for(var k in m) a.push(k + '@' + m[k])
   return a
 }
+
+exports = module.exports = function (start, opts) {
+  start = start || process.cwd()
+  return mergeDeps(package({filename: join(start, 'package.json')}), opts)
+}
+
+exports.mergeDeps = mergeDeps
 
 if(!module.parent)
   console.log(module.exports(process.argv[2]))
