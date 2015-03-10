@@ -15,7 +15,7 @@ function mergeDeps (p, opts) {
   if (opts && opts.dev) {
     m = merge(m, p.devDependencies);
   }
-  if (!opts || !opts.noOptional) {
+  if (!opts || !opts['no-optional']) {
     m = merge(m, p.optionalDependencies);
   }
   var a = []
