@@ -1,19 +1,22 @@
 {
-    "name": "get-deps",
-    "description": "get the dependencies to be installed from a directory",
-    "version": "2.1.0",
-    "homepage": "https://github.com/dominictarr/get-deps",
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/dominictarr/get-deps.git"
-    },
-    "dependencies": {
-        "package": "1.0.1"
-    },
-    "devDependencies": {},
-    "scripts": {
-        "test": "set -e; for t in test/*.js; do node $t; done"
-    },
-    "author": "Dominic Tarr <dominic.tarr@gmail.com> (http://dominictarr.com)",
-    "license": "MIT"
+  "name": "get-deps",
+  "description": "get the dependencies to be installed from a directory",
+  "version": "2.1.0",
+  "homepage": "https://github.com/dominictarr/get-deps",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dominictarr/get-deps.git"
+  },
+  "dependencies": {
+    "package": "1.0.1"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {
+    "minimist": "~1.1.0"
+  },
+  "scripts": {
+    "test": "set -e; for t in test/*.js; do node $t; done"
+  },
+  "author": "Dominic Tarr <dominic.tarr@gmail.com> (http://dominictarr.com)",
+  "license": "MIT"
 }
