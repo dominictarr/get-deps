@@ -15,7 +15,7 @@ function mergeDeps (p, opts) {
   if (opts && opts.dev) {
     m = merge(m, p.devDependencies);
   }
-  if (!opts || !opts.noOptional) {
+  if (!opts || opts.optional === false) {
     m = merge(m, p.optionalDependencies);
   }
   var a = []
@@ -30,5 +30,8 @@ exports = module.exports = function (start, opts) {
 
 exports.mergeDeps = mergeDeps
 
-if(!module.parent)
-  console.log(module.exports(process.argv[2]))
+if(!module.parent) {
+  var opts = require('minimist')(process.argv.slice(2))
+  console.log(opts)
+  console.log(module.exports(opts._[0], opts))
+}
