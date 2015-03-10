@@ -11,15 +11,13 @@ function merge (a, b) {
 }
 
 function mergeDeps (p, opts) {
-  var m = !opts || opts.dev !== false
-        ? merge(
-            merge(
-              merge({}, p.dependencies), 
-              p.devDependencies
-            ),
-            p.optionalDependencies
-          )
-        : merge(p.dependencies, p.optionalDependencies)
+  var m = merge({}, p.dependencies);
+  if (opts && opts.dev) {
+    m = merge(m, p.devDependencies);
+  }
+  if (!opts || !opts.no-optional) {
+    m = merge(m, p.optionalDependencies);
+  }
   var a = []
   for(var k in m) a.push(k + '@' + m[k])
   return a
